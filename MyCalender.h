@@ -1,6 +1,6 @@
-
+// Belongs in cpp file, so move over to MyCalendar.cpp
 // Gets the number of days in a specific month of a specific year
-int MyCalendar::daysInMonth(int m, int y) const 
+/* int MyCalendar::daysInMonth(int m, int y) const 
 {
     if (m == 2) { // February
         return isLeapYear(y) ? 29 : 28;
@@ -52,4 +52,24 @@ int MyCalendar::getDayOfWeekAsInt() const
 
     // Convert Zeller's (0=Sat, 1=Sun, ...) to (0=Sun, 1=Mon, ...)
     return (h + 6) % 7;
-}
+} */ 
+#pragma once 
+#include <iostream>
+#include <string>
+#include "MyScheduleDay.h" // Include the aggregated class
+using namespace std;
+//-------------------------------------------------
+// Aggregate Class Definition
+//-------------------------------------------------
+
+class MyCalendar
+{
+public:
+    MyCalendar& operator++();   // Prefix
+    MyCalendar operator++(int); // Postfix
+    MyCalendar& operator--();   // Prefix
+    MyCalendar operator--(int); // Postfix
+    MyCalendar operator+(int days) const;
+
+};
+
